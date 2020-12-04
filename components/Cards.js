@@ -59,79 +59,47 @@ return card;
 
 axios.get('https://lambda-times-api.herokuapp.com/articles')
   .then((res) => {
-    // console.log('card data came thru', res);
-    const bootstrapContent = res.data.articles.bootstrap;
-    // console.log('bootstrap content', bootstrapContent);
-    const javascriptContent = res.data.articles.javascript;
-    // console.log('js content', javascriptContent);
-    const jqueryContent = res.data.articles.jquery;
-    // console.log('jquery content', jqueryContent);
-    const nodeContent = res.data.articles.node;
-    // console.log('node content', nodeContent);
-    const technologyContent = res.data.articles.technology;
+    const dataLook = res.data.articles;
+    console.log('datalook', dataLook);
+   
+    const bootstrapContent0 = res.data.articles.bootstrap[0];
+    const bootstrapContent1 = res.data.articles.bootstrap[1];
+    const bootstrapContent2 = res.data.articles.bootstrap[2];
+    const javascriptContent0 = res.data.articles.javascript[0];
+    const javascriptContent1 = res.data.articles.javascript[1];
+    const javascriptContent2 = res.data.articles.javascript[2];
+    const javascriptContent3 = res.data.articles.javascript[3];
+    const jqueryContent0 = res.data.articles.jquery[0];
+    const jqueryContent1 = res.data.articles.jquery[1];
+    const jqueryContent2 = res.data.articles.jquery[2];
+    const nodeContent0 = res.data.articles.node[0];
+    const nodeContent1 = res.data.articles.node[1];
     const technologyContent0 = res.data.articles.technology[0];
     const technologyContent1 = res.data.articles.technology[1];
     const technologyContent2 = res.data.articles.technology[2];
-    console.log('tech content', technologyContent);
-    console.log('tech content 1', technologyContent0);
-    console.log('tech content 2', technologyContent1);
-    console.log('tech content 3', technologyContent2);
 
-
-    const newCardMaker = cardMaker(technologyContent0);
-    cardsContainer.appendChild(newCardMaker);
-        // const obj = res.data.articles.bootstrap;
-        // console.log('obj', obj);
-        // for(let i = 0; i < obj.length; i++){
-        //     // console.log('loop 1', obj[i]);
-        //     for(let prop in obj[i]){
-        //         console.log('loop 2', obj[i][prop])
-        //     }
-        // }
-        // const obj2 = res.data.articles.javascript;
-        // console.log('obj', obj2);
-        // for(let i = 0; i < obj2.length; i++){
-        //     // console.log('loop 3', obj2[i]);
-        //     for(let prop in obj2[i]){
-        //         console.log('loop 4', obj2[i][prop])
-        //     }
-        // }
-        // const obj3 = res.data.articles.jquery;
-        // console.log('obj', obj3);
-        // for(let i = 0; i < obj3.length; i++){
-        //     // console.log('loop 5', obj3[i]);
-        //     for(let prop in obj3[i]){
-        //         console.log('loop 6', obj3[i][prop])
-        //     }
-        // }
-        // const obj4 = res.data.articles.node;
-        // console.log('obj', obj4);
-        // for(let i = 0; i < obj4.length; i++){
-        //     // console.log('loop 7', obj4[i]);
-        //     for(let prop in obj4[i]){
-        //         console.log('loop 8', obj4[i][prop])
-        //     }
-        // }
-        // const obj5 = res.data.articles.node;
-        // console.log('obj', obj5);
-        // for(let i = 0; i < obj5.length; i++){
-        //     // console.log('loop 9', obj5[i]);
-        //     for(let prop in obj5[i]){
-        //         console.log('loop 10', obj5[i][prop])
-        //     }
-        // }  
-
-
+    const cardArray = [
+        bootstrapContent0,
+        bootstrapContent1,
+        bootstrapContent2,
+        javascriptContent0,
+        javascriptContent1,
+        javascriptContent2,
+        javascriptContent3,
+        jqueryContent0,
+        jqueryContent1,
+        jqueryContent2,
+        nodeContent0,
+        nodeContent1,
+        technologyContent0,
+        technologyContent1,
+        technologyContent2
+    ]
+    cardArray.forEach((item) => { 
+        const newCardMaker = cardMaker(item);
+        cardsContainer.appendChild(newCardMaker);
+    })
   })
   .catch((error) => {
     console.log('it didnt work', error);
   })
-
-
-//   let obj = res.date['articles'];
-//   for(let i=0; i , obj.length; i++){
-//       console.log(obj[i]);
-//       for(let prop in obj[i]){
-//           console.log(prop, obj[i].prop)
-//       }
-//   }
