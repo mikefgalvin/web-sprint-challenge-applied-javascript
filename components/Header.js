@@ -15,30 +15,35 @@ const headerContainer = document.querySelector('.header-container');
 
 function Header() {
 
-const headerDiv = document.createElement('div');
-const date = document.createElement('span');
-const headerTitle = document.createElement('h1');
-const temp = document.createElement('span');
+	const headerDiv = document.createElement('div');
+	const date = document.createElement('span');
+	const headerTitle = document.createElement('h1');
+	const temp = document.createElement('span');
 
-headerDiv.appendChild(date);
-headerDiv.appendChild(headerTitle);
-headerDiv.appendChild(temp);
+	// headerDiv.appendChild(date);
+	// headerDiv.appendChild(headerTitle);
+	// 	headerDiv.appendChild(temp);
 
-headerDiv.classList.add('header');
-date.classList.add('date');
-temp.classList.add('temp');
+	headerDiv.append(date, headerTitle, temp);
 
-date.textContent = 'MARCH 28, 2020';
-headerTitle.textContent = 'Lambda Times';
-temp.textContent = '98°';
+	headerDiv.classList.add('header');
+	date.classList.add('date');
+	temp.classList.add('temp');
 
-console.log('headerDiv', headerDiv);
-return headerDiv;
+	const todayDate = new Date(Date.now())
+	date.textContent = todayDate.toDateString();
+	
+	// date.textContent = 'MARCH 28, 2020';
+	headerTitle.textContent = 'Lambda Times';
+	temp.textContent = '98°';
 
-};
+	// console.log('headerDiv', headerDiv);
+	return headerDiv;
+}
 
-console.log('function', Header());
+// console.log('function', Header());
 
-const headerInfo = Header();
+// const headerInfo = Header();
 
-headerContainer.appendChild(headerInfo);
+// headerContainer.appendChild(headerInfo);
+headerContainer.appendChild(Header());
