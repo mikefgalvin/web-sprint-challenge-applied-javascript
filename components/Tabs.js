@@ -48,7 +48,36 @@ function topicMaker(topicData) {
 axios.get('https://lambda-times-api.herokuapp.com/topics')
 	.then((res) => {
 		// console.log('data came thru', res);
-		// const topicContent = res.data.topics;
+		// throw Error;
+		const topicContent = res.data.topics;
+
+		// const chaz = {
+		// 	firstName: "Chaz",
+		// 	lastName: "Kiker",
+		// 	age: 19
+		// };
+		// console.log(Object.entries(chaz));
+		// [
+		// 	0: [
+		// 		0: "firstName"
+		// 		1: "Chaz"
+		// 	],
+		// 	1: [
+		// 		0: "lastName"
+		// 		1: "Kiker"
+		// 	],
+		// 	[],
+		// ]
+
+		// let { firstName, age } = chaz;
+		// let firstName = chaz.firstName;
+		// let age = chaz.age;
+
+		// console.log(firstName, age)
+
+		// firstName = "Mike";
+		// console.log(firstName);
+		// console.log(chaz);
 
 		// you can use destructuring for less `.property` notation:
 		const { topics } = res.data;
@@ -57,11 +86,11 @@ axios.get('https://lambda-times-api.herokuapp.com/topics')
 		// console.log('topic content', topicContent);
 		// topicContent.forEach(item => {
 		topics.forEach(topic => {
-			// const newTopic = topicMaker(item);
-			// topicsContainer.appendChild(newTopic);
+			const newTopic = topicMaker(topic);
+			topicsContainer.appendChild(newTopic);
 
 			// you are welcome to do an inline call to topicMaker() if you prefer this. Just tossing it out as an option
-			topicsContainer.appendChild(topicMaker(topic));
+			// topicsContainer.appendChild(topicMaker(topic));
 		});
 	})
 	.catch((error) => {

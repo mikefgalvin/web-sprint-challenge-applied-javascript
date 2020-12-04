@@ -23,6 +23,7 @@ function Header() {
 	// headerDiv.appendChild(date);
 	// headerDiv.appendChild(headerTitle);
 	// 	headerDiv.appendChild(temp);
+
 	headerDiv.append(date, headerTitle, temp);
 
 	headerDiv.classList.add('header');
@@ -31,6 +32,7 @@ function Header() {
 
 	const todayDate = new Date(Date.now())
 	date.textContent = todayDate.toDateString();
+	
 	// date.textContent = 'MARCH 28, 2020';
 	headerTitle.textContent = 'Lambda Times';
 	temp.textContent = '98°';
